@@ -10,7 +10,7 @@ export default function(hljs) {
   var ZEN_KEYWORDS =
     'fn usingnamespace test ' +
     // storage
-    'const var extern packed export pub noalias inline noinline comptime ' +
+    'const var extern packed export pub noalias inline noinline comptime deprecated ' +
     'callconv volatile allowzero align linksection threadlocal ' +
     // structure
     'struct enum union error interface ' +
@@ -39,7 +39,7 @@ export default function(hljs) {
     'compileLog ctz popCount divExact divFloor divTrunc ' +
     'embedFile export tagName TagType errorName call ' +
     'errorReturnTrace fence fieldParentPtr field unionInit ' +
-    'frameAddress import newStackCall asyncCall intToPtr IntType ' +
+    'frameAddress import asyncCall intToPtr Int ' +
     'memberCount memberName memberType as ' +
     'memcpy memset mod mulWithOverflow splat ' +
     'bitOffsetOf byteOffsetOf OpaqueType panic ptrCast ' +
@@ -50,7 +50,7 @@ export default function(hljs) {
     'truncate typeId typeInfo typeName TypeOf atomicRmw bytesToSlice sliceToBytes ' +
     'intToError errorToInt intToEnum enumToInt setAlignStack frame Frame frameSize bitReverse Vector ' +
     'sin cos exp exp2 log log2 log10 fabs floor ceil trunc round ' +
-	'mulAdd Trap alignedSizeOf alignTo is';
+    'mulAdd trap alignedSizeOf alignTo overlay call to is';
 
   return {
     name: 'Zen',
