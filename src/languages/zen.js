@@ -81,7 +81,7 @@ export default function(hljs) {
       },
       {
         className: 'type',
-        begin: /(i|u)(\d{3}|\d{2}|\d{1})/
+        begin: /(i|u)(\d{3}|\d{2}|\d{1})+\b/
       },
       {
         className: 'meta',
@@ -90,10 +90,6 @@ export default function(hljs) {
         contains: [
           hljs.QUOTE_STRING_MODE,
         ]
-      },
-      {
-        className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
       },
       {
         className: 'function',
