@@ -2,7 +2,7 @@
 Language: Zen
 Author: sksat <sksat@sksat.net>
 Description: 
-Website: https://zenlang.org
+Website: https://zen-lang.org
 Category: system
 */
 
@@ -66,7 +66,6 @@ export default function(hljs) {
 
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'string',
         variants: [
