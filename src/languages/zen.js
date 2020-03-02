@@ -25,7 +25,7 @@ export default function(hljs) {
     'true false null undefined';
   var ZEN_BUILTINS = 
     // type
-    'noreturn type anyerror anyframe ' +
+    'noreturn type anyerror anyframe vtable ' +
     'void comptime_int comptime_float ' +
     'bool isize usize ' +
     'f16 f32 f64 f128 ' +
