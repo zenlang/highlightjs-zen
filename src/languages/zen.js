@@ -40,18 +40,18 @@ export default function(hljs) {
     'compileLog ctz popCount divExact divFloor divTrunc ' +
     'embedFile export tagName TagType errorName call ' +
     'errorReturnTrace fence fieldParentPtr field unionInit ' +
-    'frameAddress import asyncCall intToPtr Int ' +
-    'memberCount memberName memberType as ' +
+    'frameAddress import intToPtr ' +
+    'minValue maxValue ' +
     'memcpy memset mod mulWithOverflow splat ' +
     'bitOffsetOf byteOffsetOf OpaqueType panic ptrCast ' +
     'ptrToInt rem returnAddress setCold Type shuffle ' +
     'setRuntimeSafety setEvalBranchQuota setFloatMode ' +
     'setGlobalLinkage setGlobalSection shlExact This hasDecl hasField ' +
     'shlWithOverflow shrExact sizeOf bitSizeOf sqrt byteSwap subWithOverflow intCast floatCast intToFloat floatToInt boolToInt errSetCast ' +
-    'truncate typeId typeInfo typeName TypeOf atomicRmw bytesToSlice sliceToBytes ' +
+    'truncate typeInfo typeName TypeOf atomicRmw bytesToSlice sliceToBytes ' +
     'intToError errorToInt intToEnum enumToInt setAlignStack frame Frame frameSize bitReverse Vector ' +
     'sin cos exp exp2 log log2 log10 fabs floor ceil trunc round ' +
-    'mulAdd trap alignedSizeOf alignTo overlay call to is';
+    'mulAdd trap alignedSizeOf alignTo overlay call to is nearbyInt';
 
   return {
     name: 'Zen',
