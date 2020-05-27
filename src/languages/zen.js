@@ -10,13 +10,14 @@ export default function(hljs) {
   var ZEN_KEYWORDS =
     'fn usingnamespace test ' +
     // storage
-    'const var extern packed export pub noalias inline noinline comptime deprecated ' +
-    'callconv volatile allowzero align linksection threadlocal ' +
+    'const comptime var mut allowzero pub extern export deprecated ' +
+    'packed align volatile inline noinline callconv threadlocal ' +
+    'linksection noalias terminate ' +
     // structure
     'struct enum union error interface ' +
     // statement
     'break return continue asm defer errdefer unreachable try catch ' +
-    'async noasync await suspend resume ' +
+    'async await suspend nosuspend resume ' +
     // conditional
     'if else switch and or orelse ' +
     // repeat
@@ -25,7 +26,7 @@ export default function(hljs) {
     'true false null undefined';
   var ZEN_BUILTINS = 
     // type
-    'noreturn type anyerror anyframe vtable ' +
+    'noreturn type anytype anyerror anyframe ' +
     'void comptime_int comptime_float ' +
     'bool isize usize ' +
     'f16 f32 f64 f128 ' +
