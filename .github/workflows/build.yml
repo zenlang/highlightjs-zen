@@ -17,12 +17,14 @@ jobs:
                 path: highlight.js
 
             - name: move highlightjs-zen to extra dir
-            - run: mv zen highlight.js/extra
+              run: mv zen highlight.js/extra
 
-            - name: build
+            - name: setup node
               uses: actions/setup-node@v1
               with:
                   node-version: '14'
+
+            - name: build
               run: |
                   cd highlight.js
                   npm install
