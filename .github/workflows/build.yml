@@ -30,8 +30,13 @@ jobs:
                   npm install
                   node ./tools/build.js
 
-            - name: upload as artifact
+            - run: |
+                mkdir hljs-zen
+                mv highlight.js/build/highlight.js hljs-zen
+                mv highlight.js/build/highlight.min.js hljs-zen
+
+            - name: upload output
               uses: actions/upload-artifact@v2
               with:
-                  name: highlight.min.js
-                  path: highlight.js/build/highlight.min.js
+                  name: hljs-zen
+                  path: hljs-zen/
