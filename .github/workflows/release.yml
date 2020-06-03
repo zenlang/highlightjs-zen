@@ -1,0 +1,60 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: zen
+
+      - name: checkout highlight.js
+        uses: actions/checkout@v2
+        with:
+          repository: highlightjs/highlight.js
+          path: highlight.js
+
+      - name: move highlightjs-zen to extra dir
+        run: mv zen highlight.js/extra
+
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - name: build
+        run: |
+            cd highlight.js
+            npm install
+            node ./tools/build.js zen
+
+      - run: |
+          mkdir hljs-zen
+          mv highlight.js/build/highlight.js hljs-zen
+          mv highlight.js/build/highlight.min.js hljs-zen
+
+      - name: create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: true
+          prerelease: false
+      - name: upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: hljs-zen/highlight.min.js
+          asset_name: highlight.min.js
+          asset_content_type: text/javascript
