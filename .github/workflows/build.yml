@@ -1,0 +1,46 @@
+name: build
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+              with:
+                path: zen
+
+            - name: checkout highlight.js
+              uses: actions/checkout@v2
+              with:
+                repository: highlightjs/highlight.js
+                path: highlight.js
+
+            - name: move highlightjs-zen to extra dir
+              run: mv zen highlight.js/extra
+
+            - name: setup node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14'
+
+            - name: build
+              run: |
+                  cd highlight.js
+                  npm install
+                  node ./tools/build.js
+
+            - run: |
+                mkdir hljs-zen
+                mv highlight.js/build/highlight.js hljs-zen
+                mv highlight.js/build/highlight.min.js hljs-zen
+
+            - name: upload output
+              uses: actions/upload-artifact@v2
+              with:
+                  name: hljs-zen
+                  path: hljs-zen/
