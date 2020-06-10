@@ -14,7 +14,7 @@ export default function(hljs) {
     'packed align volatile inline noinline callconv threadlocal ' +
     'linksection noalias terminate ' +
     // structure
-    'struct enum union error interface ' +
+    'struct enum union error interface vtable ' +
     // statement
     'break return continue asm defer errdefer unreachable try catch ' +
     'async await suspend nosuspend resume ' +
